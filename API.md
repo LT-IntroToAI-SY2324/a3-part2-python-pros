@@ -1,6 +1,7 @@
 ## API Information
 
-Url: https://rapidapi.com/accujazz/api/rawg-video-games-database/
+URL: https://rapidapi.com/accujazz/api/rawg-video-games-database/
+DOCS: https://api.rawg.io/docs
 
 ### Endpoints
 
