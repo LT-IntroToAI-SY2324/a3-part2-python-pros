@@ -14,6 +14,14 @@ from database import *
 #     results = get_games("search=\"" + input + "\"") #Gets a list of games with the input name
 #     firstResult = get_game(results["results"][0]["id"]) #Gets the 
 #     return firstResult["publisher"] #Gets the publisher of the first result
+
+def esrb_rating_by_game(matches: List[str]):
+    input = matches[0].lower()
+    input = input.replace(" ", "-")
+    results = get_games("search=\"" + input + "\"") #Gets a list of games with the input name
+    firstResult = get_game(results["results"][0]["id"]) #Gets the first result
+    print(firstResult["esrb_rating"]["name"])
+    
     
 
 
