@@ -19,6 +19,14 @@ def developers_by_game(matches: List[str]):
 #     return firstResult["publisher"] #Gets the publisher of the first result
 
 
+def esrb_rating_by_game(matches: List[str]):
+    input = matches[0].lower()
+    input = input.replace(" ", "-")
+    results = get_games("search=\"" + input + "\"") #Gets a list of games with the input name
+    firstResult = get_game(results["results"][0]["id"]) #Gets the first result
+    print(firstResult["esrb_rating"]["name"])
+
+
 pa_list: List[Tuple[List[str], Callable[[List[str]], List[Any]]]] = [
     (str.split("who developed %"), developers_by_game),
 ]
