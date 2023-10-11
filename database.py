@@ -59,7 +59,7 @@ def print_list_of_games(details):
         print(game["name"])
 
 
-games_data = get_games("search=\"rocket-league\"")
-print_list_of_games(games_data)
-game_data = get_game(games_data["results"][0]["id"])
-print_game_details(game_data)
+# games_data = get_games("search=\"rocket-league\"")
+# print_list_of_games(games_data)
+# game_data = get_game(games_data["results"][0]["id"])
+# print_game_details(game_data)
