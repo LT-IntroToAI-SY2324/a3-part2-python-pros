@@ -16,6 +16,15 @@ from database import *
 #     return firstResult["publisher"] #Gets the publisher of the first result
 
 def esrb_rating_by_game(matches: List[str]):
+    """Takes a list of one item, a game, and prints its ESRB rating
+    
+    Args:
+        matches - One string, the name of a game
+    
+    Returns:
+        None
+    
+    """
     input = matches[0].lower()
     input = input.replace(" ", "-")
     results = get_games("search=\"" + input + "\"") #Gets a list of games with the input name
@@ -28,6 +37,6 @@ def esrb_rating_by_game(matches: List[str]):
 
 
 pa_list: List[Tuple[List[str], Callable[[List[str]], List[Any]]]] = [
-    
+    (str.split("What is the ESRB rating for %"), esrb_rating_by_game)
 ]
 
