@@ -37,7 +37,7 @@ def esrb_rating_by_game(matches: List[str]):
 
 
 pa_list: List[Tuple[List[str], Callable[[List[str]], List[Any]]]] = [
-    (str.split("What is the ESRB rating for %"), esrb_rating_by_game)
+    (str.split("What is the ESRB rating for %"), esrb_rating_by_game),
     (str.split("who developed %"), developers_by_game),
 ]
 
