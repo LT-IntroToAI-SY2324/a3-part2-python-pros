@@ -2,8 +2,7 @@ from typing import Any, Callable, List, Tuple
 from match import match
 from database import *
 
-# Database doesn't store this sort of publisher information, but these stay until I make one that does work
-def developers_by_game(matches: List[str]):
+def developers_by_game(matches: List[str]): # Doesn't work. From research, ID is pk. But that would mean this should work.
     input = matches[0].lower()
     input = input.replace(" ", "-")
     search_result = get_games(f"search=\"{input}\"")["results"][0]
