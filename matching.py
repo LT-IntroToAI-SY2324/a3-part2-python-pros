@@ -35,10 +35,61 @@ def esrb_rating_by_game(matches: List[str]):
     firstResult = get_game(results["results"][0]["id"]) #Gets the first result
     print(firstResult["esrb_rating"]["name"])
 
+def rating_by_game(matches:List[str]):
+    """Takes a list of one item, a game, and prints its rating (score)
+    
+    Args:
+        matches - One string, the name of a game
+    
+    Returns:
+        None
+    
+    """
+    input = matches[0].lower()
+    input = input.replace(" ", "-")
+    results = get_games("search=\"" + input + "\"") #Gets a list of games with the input name
+    firstResult = get_game(results["results"][0]["id"]) #Gets the first result
+    print(firstResult["rating"])
+
+def playtime_by_game(matches: List[str]):
+    """Takes a list of one item, a game, and prints its estimated length in hours
+    
+    Args:
+        matches - One string, the name of a game
+    
+    Returns:
+        None
+    
+    """
+    input = matches[0].lower()
+    input = input.replace(" ", "-")
+    results = get_games("search=\"" + input + "\"") #Gets a list of games with the input name
+    firstResult = get_game(results["results"][0]["id"]) #Gets the first result
+    print(firstResult["playtime"])
+
+def release_date_by_game(matches: List[str]):
+    """Takes a list of one item, a game, and prints its release date
+    
+    Args:
+        matches - One string, the name of a game
+    
+    Returns:
+        None
+    
+    """
+    input = matches[0].lower()
+    input = input.replace(" ", "-")
+    results = get_games("search=\"" + input + "\"") #Gets a list of games with the input name
+    firstResult = get_game(results["results"][0]["id"]) #Gets the first result
+    print(firstResult["released"])
+
+
 
 pa_list: List[Tuple[List[str], Callable[[List[str]], List[Any]]]] = [
     (str.split("What is the ESRB rating for %"), esrb_rating_by_game),
-    (str.split("who developed %"), developers_by_game),
+    (str.split("Who developed %"), developers_by_game),
+    (str.split("How long is %"), playtime_by_game),
+    (str.split("When was % released?"), release_date_by_game)
 ]
 
 def search_pa_list(src: List[str]) -> List[str]:
