@@ -86,10 +86,10 @@ def release_date_by_game(matches: List[str]):
 
 
 pa_list: List[Tuple[List[str], Callable[[List[str]], List[Any]]]] = [
-    (str.split("What is the ESRB rating for %"), esrb_rating_by_game),
-    (str.split("Who developed %"), developers_by_game),
-    (str.split("How long is %"), playtime_by_game),
-    (str.split("When was % released?"), release_date_by_game)
+    (str.split("what is the ESRB rating for %"), esrb_rating_by_game),
+    (str.split("who developed %"), developers_by_game),
+    (str.split("how long is %"), playtime_by_game),
+    (str.split("when was % released"), release_date_by_game),
 ]
 
 def search_pa_list(src: List[str]) -> List[str]:
