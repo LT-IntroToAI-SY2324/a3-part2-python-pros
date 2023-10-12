@@ -52,7 +52,7 @@ def rating_by_game(matches:List[str]):
     print(firstResult["rating"])
 
 def playtime_by_game(matches: List[str]):
-    """Takes a list of one item, a game, and prints its estimated length in hours
+    """Takes a list of one item, a game, and prints its average playtime
     
     Args:
         matches - One string, the name of a game
@@ -65,7 +65,7 @@ def playtime_by_game(matches: List[str]):
     input = input.replace(" ", "-")
     results = get_games("search=\"" + input + "\"") #Gets a list of games with the input name
     firstResult = get_game(results["results"][0]["id"]) #Gets the first result
-    print(firstResult["playtime"])
+    print(str(firstResult["playtime"]) + " hours")
 
 def release_date_by_game(matches: List[str]):
     """Takes a list of one item, a game, and prints its release date
@@ -88,7 +88,7 @@ def release_date_by_game(matches: List[str]):
 pa_list: List[Tuple[List[str], Callable[[List[str]], List[Any]]]] = [
     (str.split("what is the ESRB rating for %"), esrb_rating_by_game),
     (str.split("who developed %"), developers_by_game),
-    (str.split("how long is %"), playtime_by_game),
+    (str.split("what is the average playtime for %"), playtime_by_game),
     (str.split("when was % released"), release_date_by_game),
 ]
 
