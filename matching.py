@@ -48,7 +48,7 @@ def rating_by_game(matches:List[str]):
     input = input.replace(" ", "-")
     results = get_games("search=\"" + input + "\"") #Gets a list of games with the input name
     firstResult = get_game(results["results"][0]["id"]) #Gets the first result
-    print(firstResult["name"] + "'s is rated a " + firstResult["rating"] + " out of 5")
+    print(firstResult["name"] + " has a rating of " + str(firstResult["rating"]) + " out of 5")
 
 def playtime_by_game(matches: List[str]):
     """Takes a list of one item, a game, and prints its average playtime
