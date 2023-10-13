@@ -88,6 +88,7 @@ pa_list: List[Tuple[List[str], Callable[[List[str]], List[Any]]]] = [
     (str.split("what is the esrb rating for %"), esrb_rating_by_game),
     (str.split("who developed %"), developers_by_game),
     (str.split("what is the rating for %"), rating_by_game),
+    (str.split("what is % rated"), rating_by_game),
     (str.split("what is the average playtime for %"), playtime_by_game),
     (str.split("when was % released"), release_date_by_game),
 ]
