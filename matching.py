@@ -32,7 +32,7 @@ def esrb_rating_by_game(matches: List[str]):
     input = input.replace(" ", "-")
     results = get_games("search=\"" + input + "\"") #Gets a list of games with the input name
     firstResult = get_game(results["results"][0]["id"]) #Gets the first result
-    print(firstResult["esrb_rating"]["name"])
+    print(firstResult["name"] + " is rated " + firstResult["esrb_rating"]["name"])
 
 def rating_by_game(matches:List[str]):
     """Takes a list of one item, a game, and prints its rating (score)
@@ -48,7 +48,7 @@ def rating_by_game(matches:List[str]):
     input = input.replace(" ", "-")
     results = get_games("search=\"" + input + "\"") #Gets a list of games with the input name
     firstResult = get_game(results["results"][0]["id"]) #Gets the first result
-    print(firstResult["rating"])
+    print(firstResult["name"] + "'s is rated a " + firstResult["rating"] + " out of 5")
 
 def playtime_by_game(matches: List[str]):
     """Takes a list of one item, a game, and prints its average playtime
@@ -64,7 +64,7 @@ def playtime_by_game(matches: List[str]):
     input = input.replace(" ", "-")
     results = get_games("search=\"" + input + "\"") #Gets a list of games with the input name
     firstResult = get_game(results["results"][0]["id"]) #Gets the first result
-    print(str(firstResult["playtime"]) + " hours")
+    print(str(firstResult["name"] + " has an average playtime of " + firstResult["playtime"]) + " hours")
 
 def release_date_by_game(matches: List[str]):
     """Takes a list of one item, a game, and prints its release date
@@ -80,12 +80,12 @@ def release_date_by_game(matches: List[str]):
     input = input.replace(" ", "-")
     results = get_games("search=\"" + input + "\"") #Gets a list of games with the input name
     firstResult = get_game(results["results"][0]["id"]) #Gets the first result
-    print(firstResult["released"])
+    print(firstResult["name"] + " was released on " + firstResult["released"])
 
 
 
 pa_list: List[Tuple[List[str], Callable[[List[str]], List[Any]]]] = [
-    (str.split("what is the ESRB rating for %"), esrb_rating_by_game),
+    (str.split("what is the esrb rating for %"), esrb_rating_by_game),
     (str.split("who developed %"), developers_by_game),
     (str.split("what is the rating for %"), rating_by_game),
     (str.split("what is the average playtime for %"), playtime_by_game),
