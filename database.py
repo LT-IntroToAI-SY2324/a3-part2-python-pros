@@ -54,7 +54,11 @@ def print_game_details(details):
 
 
 def print_list_of_games(details):
-    print(f'There are {details["count"]} results, but here are the first {len(details["results"])}.')
+    count = details["count"]
+    if int(count) == 0:
+        print("Sorry! We could not find any results that match your query.")
+        return
+    print(f'There are {count} results, but here are the first {len(details["results"])}:')
     for game in details["results"]:
         print(game["name"])
 
