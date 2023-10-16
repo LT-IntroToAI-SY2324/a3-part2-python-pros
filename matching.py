@@ -64,7 +64,7 @@ def playtime_by_game(matches: List[str]):
     input = input.replace(" ", "-")
     results = get_games("search=\"" + input + "\"") #Gets a list of games with the input name
     firstResult = get_game(results["results"][0]["id"]) #Gets the first result
-    print(str(firstResult["name"] + " has an average playtime of " + firstResult["playtime"]) + " hours")
+    print(str(firstResult["name"]) + " has an average playtime of " + str(firstResult["playtime"]) + " hours")
 
 def release_date_by_game(matches: List[str]):
     """Takes a list of one item, a game, and prints its release date
